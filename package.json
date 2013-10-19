@@ -1,6 +1,6 @@
 {
   "name": "scaleserver",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -12,6 +12,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Riccardo Canalicchio",
   "license": "BSD-2-Clause"
 }
