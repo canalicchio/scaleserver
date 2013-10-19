@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+        <head>
+        <script src="/socket.io/socket.io.js"></script>
+	<style>
+		body{
+			font-family: Helvetica;
+		}
+		h1{
+			margin-bottom: 50px;
+		}
+		
+		#peso{
+			margin-top: 30px;
+			font-size: 32px;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="/moment.min.js"></script>
+	<script>
+                // open a connection to the serial server:
+                var socket = io.connect('http://151.40.35.66:8080');
+
+                 // when you get a serialdata event, do this:
+                socket.on('serialEvent', function (data) {
+			$("#peso").text(data.value.substring(0,3) + "." + data.value.substring(3,6) + " KG");
+			document.title = (moment().format('YYYYMMDDhh'));
+			$("#code").text(moment().format('YYYYMMDDhh'));
+			$("#date").text(moment().format('DD/MM/YYYY'));
+			$("#hour").text(moment().format('hh:mm'));	
+                });
+        </script>
+
+        </head>
+        <body>
+        <h1>PCE TS-60</h1>
+	<p>CODICE PESATA: <span id="code"></span></p>
+	<p>DATA: <span id="date"></span></p>
+	<p>ORA: <span id="hour"></span></p>
+        <div id="peso"></div>
+        </body>
+</html>
